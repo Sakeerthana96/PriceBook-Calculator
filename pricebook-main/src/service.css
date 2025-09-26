@@ -1,0 +1,866 @@
+/* service.css */
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #a5b4fc;
+    --secondary: #10b981;
+    --secondary-dark: #059669;
+    --danger: #ef4444;
+    --danger-dark: #dc2626;
+    --warning: #f59e0b;
+    --warning-dark: #d97706;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --dark-light: #334155;
+    --gray: #64748b;
+    --light-gray: #e2e8f0;
+    --border-radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  body {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    color: var(--dark);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  .container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  /* Typography */
+  h2, h3, h4 {
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 2px;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(90deg, var(--dark), var(--dark-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 2px;
+  }
+  
+  /* Form Elements */
+  select, input {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    width: 100%;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  select:focus, input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    transform: translateY(-1px);
+  }
+  
+  label {
+    font-weight: 600;
+    color: var(--dark-light);
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 0.95rem;
+  }
+  
+  /* Buttons */
+  button {
+    transition: var(--transition);
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0));
+    opacity: 0;
+    transition: var(--transition);
+  }
+  
+  button:hover::after {
+    opacity: 1;
+  }
+  
+  .searchButton {
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+    letter-spacing: 0.5px;
+    margin: 1rem auto;
+    display: block;
+  }
+  
+  .searchButton:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .calcButton {
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+    color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .calcButton:hover {
+    background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+  }
+  
+  .refreshButton {
+    padding: 0.6rem;
+    background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+    color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .refreshButton:hover {
+    background: linear-gradient(135deg, var(--danger-dark), var(--danger));
+    transform: rotate(180deg);
+    box-shadow: var(--shadow);
+  }
+  
+  .calculateAllButton {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    font-size: 1.1rem;
+    margin: 2rem auto;
+    display: block;
+    box-shadow: var(--shadow);
+    letter-spacing: 0.5px;
+  }
+  
+  .calculateAllButton:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .termsButton {
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg, var(--warning), var(--warning-dark));
+    color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .termsButton:hover {
+    background: linear-gradient(135deg, var(--warning-dark), var(--warning));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  
+  /* Cards & Containers */
+  .card {
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition-slow);
+    border-left: 5px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(79, 70, 229, 0.05) 100%);
+    z-index: 0;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .valueBox {
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 1px solid rgba(226, 232, 240, 0.7);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .valueBox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    transition: var(--transition);
+  }
+  
+  .valueBox:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+  }
+  
+  .valueBox:hover::before {
+    width: 8px;
+  }
+  
+  .valueTitle {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .resultDisplay {
+    padding: 1rem;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    color: #065f46;
+    margin-top: 1rem;
+    border-left: 4px solid var(--secondary);
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .summaryContainer {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .totalsContainer {
+    border-top: 1px solid rgba(226, 232, 240, 0.7);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .totalRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(226, 232, 240, 0.7);
+  }
+  
+  .grandTotal {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid rgba(226, 232, 240, 0.7);
+    color: var(--primary-dark);
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  /* Grid Layouts */
+  .formGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .valuesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .resultButtons {
+    display: flex;
+    gap: 1.5rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .resultBox {
+    flex: 1;
+    min-width: 250px;
+    max-width: 320px;
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition-slow);
+    border: 1px solid rgba(226, 232, 240, 0.7);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .resultBox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: var(--transition);
+  }
+  
+  .resultBox:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+  }
+  
+  .resultBox:hover::before {
+    height: 8px;
+  }
+  
+  .resultBox h4 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .resultBox button {
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    box-shadow: var(--shadow-sm);
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .resultBox button:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  
+  /* Additional styles */
+  .formGroup {
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .searchResult {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    color: var(--primary-dark);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .termsButtonContainer {
+    margin: 2rem 0;
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .detailsContainer {
+    margin-top: 3rem;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .serviceNumber {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+  }
+  
+  .serviceDetails {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(241, 245, 249, 0.5);
+    border-radius: var(--border-radius);
+  }
+  
+  .calcContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  
+  .quantityInput, 
+  .additionalHoursInput,
+  .distanceInput {
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    width: 100%;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .quantityInput:focus, 
+  .additionalHoursInput:focus,
+  .distanceInput:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    transform: translateY(-1px);
+  }
+  
+  .calcButtonsContainer {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+  
+  .additionalHoursRate {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 0.8rem 0;
+    font-style: italic;
+  }
+  
+  .distanceInputContainer {
+    margin: 1rem 0;
+  }
+  
+  .distanceInputContainer label {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .refreshAllButton {
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+    color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .refreshAllButton:hover {
+    background: linear-gradient(135deg, var(--danger-dark), var(--danger));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  
+  .viewDetailsButton {
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .viewDetailsButton:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  
+  /* Special Elements */
+  .hourlyNote {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border-radius: var(--border-radius);
+    color: #92400e;
+    text-align: center;
+    border-left: 5px solid var(--warning);
+    font-weight: 500;
+    margin: 2rem 0;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .termsContainer {
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .termsList {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .termsList li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.7;
+  }
+  
+  .termsList li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s infinite ease-in-out;
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientBG 6s ease infinite;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    .container {
+      padding: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .formGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .valuesContainer {
+      grid-template-columns: 1fr;
+    }
+    
+    .resultButtons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .resultBox {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+    }
+    
+    .card {
+      padding: 1.5rem;
+    }
+    
+    .summaryContainer {
+      padding: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+  }/* service.css */
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #a5b4fc;
+  --secondary: #10b981;
+  --secondary-dark: #059669;
+  --danger: #ef4444;
+  --danger-dark: #dc2626;
+  --warning: #f59e0b;
+  --warning-dark: #d97706;
+  --light: #f8fafc;
+  --dark: #1e293b;
+  --dark-light: #334155;
+  --gray: #64748b;
+  --light-gray: #e2e8f0;
+  --border-radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  color: var(--dark);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Containers */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Typography */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  border-radius: 2px;
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--primary);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-slow);
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Form Elements */
+input, select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  background-color: white;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Buttons */
+button {
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  padding: 0.7rem 1.5rem;
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.searchButton {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+.searchButton:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+}
+
+.calcButton {
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+}
+.calcButton:hover {
+  background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+  transform: scale(1.05);
+}
+
+.refreshButton {
+  background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+}
+.refreshButton:hover {
+  background: linear-gradient(135deg, var(--danger-dark), var(--danger));
+  transform: translateY(-2px) rotate(0deg);
+}
+
+/* Buttons Alignment Container */
+.actionButtons {
+  display: flex;
+  justify-content: flex-end; /* aligns buttons to right */
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Result Boxes */
+.resultBox {
+  background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+}
+.resultBox h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .actionButtons {
+    justify-content: center;
+  }
+  .resultBox, .card {
+    width: 100%;
+  }
+}
